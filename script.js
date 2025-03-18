@@ -1,21 +1,14 @@
-// Mostrar/ocultar párrafo
-document.getElementById('mostrarOcultar').addEventListener('click', function() {
-    let parrafo = document.getElementById('textoOculto');
-    if (parrafo.style.display === 'none') {
-        parrafo.style.display = 'block';
+const body = document.body;
+const originalBackgroundColor = window.getComputedStyle(body).backgroundColor;
+const newBackgroundColor = '#ca7190'; // Color nuevo
+
+let isOriginalColor = true; // Variable para rastrear el color actual
+
+document.getElementById('cambiarFondo').addEventListener('click', function() {
+    if (isOriginalColor) {
+        body.style.backgroundColor = newBackgroundColor;
     } else {
-        parrafo.style.display = 'none';
+        body.style.backgroundColor = originalBackgroundColor;
     }
-});
-
-// Contador
-let contador = 0;
-document.getElementById('aumentarContador').addEventListener('click', function() {
-    contador++;
-    document.getElementById('contador').textContent = contador;
-});
-
-document.getElementById('disminuirContador').addEventListener('click', function() {
-    contador--;
-    document.getElementById('contador').textContent = contador;
+    isOriginalColor = !isOriginalColor; // Invierte el valor de la variable
 });
